@@ -70,4 +70,5 @@ _deps
 bin
 lib
 output
+.idea
 
