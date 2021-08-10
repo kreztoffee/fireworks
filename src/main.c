@@ -47,7 +47,6 @@ int main() {
 	}
 
 	// render stuff
-	// render stuff
 	const GLfloat clear_color[] = {0.2f, 0.2f, 0.5f, 1.0f};
 	glClearBufferfv(GL_COLOR, 0, clear_color);
 
