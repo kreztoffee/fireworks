@@ -1,5 +1,5 @@
-#ifndef GRAPHICS_HELPER_H__
-#define GRAPHICS_HELPER_H__
+#ifndef __GRAPHICS_HELPERS_H__
+#define __GRAPHICS_HELPERS_H__
 
 #ifdef WIN32
 #include <GL/gl.h>
@@ -18,4 +18,4 @@
 
 void get_errors();
 
-#endif /* GRAPHICS_HELPER_H__ */
+#endif /* __GRAPHICS_HELPERS_H__ */
