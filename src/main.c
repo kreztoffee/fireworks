@@ -29,13 +29,13 @@ int main() {
 
 		handle_input(window);
 
-		// render stuff
+		/* render stuff */
 		const GLfloat clear_color[] = {0.2f, 0.2f, 0.5f, 1.0f};
 		glClearBufferfv(GL_COLOR, 0, clear_color);
 		render_particles();
 
 		swap_buffers(window);
-		print_time_fw(time_fw);
+		/*print_time_fw(time_fw);*/
 		poll_events();
 	}
 
