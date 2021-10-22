@@ -1,59 +1,33 @@
 #include "graphics_helpers.h"
 #include "keyboard_handler.h"
 #include "mouse_handler.h"
+#include "framework_helpers.h"
 #include "control.h"
 #include "event.h"
 #include "window.h"
 #include "particle.h"
-#include <stdio.h>
+#include "time_fw.h"
 #include <stdlib.h>
 
 #define WIDTH 640
 #define HEIGHT 480
-#define MS_PER_UPDATE 10
-
-void init_glew() {
-	glewExperimental = GL_TRUE;
-	if (glewInit() != GLEW_OK) {
-		fprintf(stderr, "error initializing glew\n");
-		exit(EXIT_FAILURE);
-	}
-}
-
-void init_glfw() {
-	if (glfwInit() != GLFW_TRUE) {
-		fprintf(stderr, "error initializing glfw\n");
-		exit(EXIT_FAILURE);
-	}
-}
 
 int main() {
-	window_t* window;
-	double prev_ms, lag, cur_ms, delta_ms;
-
 	init_glfw();
+	window_t* window = create_window(WIDTH, HEIGHT, "fireworks");
+	struct time_fw* time_fw = (struct time_fw*)malloc(sizeof(struct time_fw));
+	init_glew();
 
-	window = create_window(WIDTH, HEIGHT, "fireworks");
 	init_keyboard_handler(window);
 	init_mouse_handler(window);
 
-	init_glew();
-
-	prev_ms = glfwGetTime();
-	lag = 0.0;
+	init_time_fw(time_fw);
 
 	poll_events();
 	while (!should_window_close(window)) {
-		cur_ms = glfwGetTime();
-		delta_ms = (cur_ms - prev_ms) * 1000.0;
-		lag += delta_ms;
+		step_time_fw(time_fw);
 
 		handle_input(window);
-
-		while (lag >= MS_PER_UPDATE) {
-			//update(MS_PER_UPDATE);
-			lag -= MS_PER_UPDATE;
-		}
 
 		// render stuff
 		const GLfloat clear_color[] = {0.2f, 0.2f, 0.5f, 1.0f};
@@ -61,9 +35,8 @@ int main() {
 		render_particles();
 
 		swap_buffers(window);
-
+		print_time_fw(time_fw);
 		poll_events();
-		prev_ms = cur_ms;
 	}
 
 	clean_up_window(window);
