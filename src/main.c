@@ -4,6 +4,7 @@
 #include "control.h"
 #include "event.h"
 #include "window.h"
+#include "particle.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -57,6 +58,7 @@ int main() {
 		// render stuff
 		const GLfloat clear_color[] = {0.2f, 0.2f, 0.5f, 1.0f};
 		glClearBufferfv(GL_COLOR, 0, clear_color);
+		render_particles();
 
 		swap_buffers(window);
 

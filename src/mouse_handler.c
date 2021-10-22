@@ -1,4 +1,5 @@
 #include "mouse_handler.h"
+#include "particle.h"
 
 void init_mouse_handler(window_t* window) {
 	glfwSetMouseButtonCallback(get_window(window), mouse_button_callback);
@@ -14,5 +15,6 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 		double xpos, ypos;
 		glfwGetCursorPos(window, &xpos, &ypos);
 		printf("%f %f\n", xpos, ypos);
+		add_particle((float) xpos, (float) ypos);
 	}
 }
