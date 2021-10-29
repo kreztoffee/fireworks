@@ -2,7 +2,6 @@
 #include "keyboard_handler.h"
 #include "mouse_handler.h"
 #include "framework_helpers.h"
-#include "control.h"
 #include "event.h"
 #include "window.h"
 #include "particle.h"
