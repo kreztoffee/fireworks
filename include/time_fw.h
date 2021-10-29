@@ -1,7 +1,7 @@
 #ifndef __TIME_FW_H__
 #define __TIME_FW_H__
 
-#define MS_PER_UPDATE 10
+#define MS_PER_UPDATE 20
 
 struct time_fw {
 	double prev_ms;
@@ -10,7 +10,7 @@ struct time_fw {
 	double delta_ms;
 };
 
-void init_time_fw();
+struct time_fw* init_time_fw();
 void step_time_fw(struct time_fw* time_fw);
 void print_time_fw(struct time_fw* time_fw);
 
