@@ -8,6 +8,4 @@ struct vertex {
 	uint8_t r, g, b, a;
 };
 
-struct vertex* alloc_vertex();
-
 #endif /* __VERTEX_H__ */
