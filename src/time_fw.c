@@ -21,6 +21,6 @@ void step_time_fw(struct time_fw* time_fw) {
 void print_time_fw(struct time_fw* time_fw) {
 	//printf("Current: %f\n", time_fw->cur_ms);
 	//printf("Previous: %f\n", time_fw->prev_ms);
-	printf("Delta: %f\n", time_fw->delta_ms);
+	//printf("Delta: %f\n", time_fw->delta_ms);
 	//printf("Lag: %f\n", time_fw->lag);
 }
