@@ -51,7 +51,6 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-
 # CMAKE ignore
 CMakeLists.txt.user
 CMakeCache.txt
@@ -68,7 +67,3 @@ _deps
 
 # local ignores
 bin
-lib
-output
-.idea
-
