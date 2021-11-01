@@ -17,13 +17,14 @@ find_package(GSL REQUIRED)
 find_package(glfw3 3.3 REQUIRED)
 
 add_subdirectory(${PROJECT_SOURCE_DIR}/src)
-target_compile_options(fireworks PUBLIC -g -Wall -Wextra -Wpedantic -MMD -MP -Qunused-arguments)
+target_compile_options(fireworks PUBLIC -Wall -Wextra -Wpedantic)
 target_include_directories(fireworks PUBLIC
         ${PROJECT_SOURCE_DIR}/include
-        ${OPENGL_INCLUDE_DIRS}
-        ${GLEW_INCLUDE_DIRS})
+        ${GLEW_INCLUDE_DIR}
+        ${OPENGL_INCLUDE_DIR}
+        ${GSL_INCLUDE_DIR})
 target_link_libraries(fireworks PUBLIC
-        ${OPENGL_LIBRARIES}
         ${GLEW_LIBRARIES}
-        glfw
-        GSL::gsl)
+        ${OPENGL_LIBRARIES}
+        ${GSL_LIBRARIES}
+        glfw)

@@ -5,9 +5,6 @@ target_sources(fireworks PRIVATE
         framework_helpers.c
         graphics_helpers.c
         keyboard_handler.c
-        graphics_helpers.c
-        keyboard_handler.c
-        ../main.c
         mouse_handler.c
         particle.c
         point.c
